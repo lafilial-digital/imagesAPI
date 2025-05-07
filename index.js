@@ -66,16 +66,11 @@ const FILE_TTL_MS = 2 * 60 * 1000; // tiempo de vida máximo: 5 minutos
 
 const cleanOldFiles = async () => {
   const uploadsDir = path.join(__dirname, 'uploads');
-  console.log('Limpiando archivos antiguos...', uploadsDir);
   const files = await fs.readdir(uploadsDir);
-  console.log('Archivos encontrados:', files);
   if (files.length === 0) {
-    console.log('No hay archivos para limpiar.');
     return;
   }
   try {
-
-
     const now = Date.now();
 
     for (const file of files) {
