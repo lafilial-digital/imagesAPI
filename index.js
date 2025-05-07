@@ -61,11 +61,12 @@ app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
 
-const CLEANUP_INTERVAL_MS = 5 * 60 * 1000; // cada 5 minutos
-const FILE_TTL_MS = 5 * 60 * 1000; // tiempo de vida máximo: 5 minutos
+const CLEANUP_INTERVAL_MS = 2 * 60 * 1000; // cada 5 minutos
+const FILE_TTL_MS = 2 * 60 * 1000; // tiempo de vida máximo: 5 minutos
 
 const cleanOldFiles = async () => {
   const uploadsDir = path.join(__dirname, 'uploads');
+  console.log('Limpiando archivos antiguos...', uploadsDir);
   try {
     const files = await fs.readdir(uploadsDir);
 
